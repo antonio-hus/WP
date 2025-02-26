@@ -1,0 +1,252 @@
+/* Global Styles */
+:root {
+    --primary-color: #024263;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --highlight-color: #f1f1f1
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--primary-color);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    padding: 0 5px;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: Arial, serif;
+    color: var(--highlight-color);
+    margin: 10px;
+}
+
+/* Main Styles */
+main {
+    margin-top: 50px;
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: var(--background-color);
+}
+
+#hero figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero img {
+    height: 300px;
+    width: auto;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+#hero figcaption {
+    font-style: italic;
+    margin-top: 8px;
+    color: #555;
+}
+
+#hero h1 {
+    font-size: 40px;
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
+#hero p {
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.5;
+}
+
+#hero a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+hr {
+    margin-top: 30px;
+    border: none;
+    height: 2px;
+    background-color: var(--text-color);
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Attractions Section */
+#attractions {
+    background: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#attractions h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#attractions article {
+    padding: 10px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+    background: var(--background-color);
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid var(--highlight-color);
+}
+
+th {
+    background: var(--primary-color);
+    color: var(--highlight-color);
+    font-weight: bold;
+}
+
+/* Culture Section */
+#culture {
+    background: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#culture h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#culture-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#culture-content {
+    flex: 2;
+}
+
+#culture-aside {
+    flex: 1;
+    background: var(--highlight-color);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#culture ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#culture li {
+    background: var(--primary-color);
+    color: var(--highlight-color);
+    padding: 8px 12px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Media Section */
+#media {
+    background: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#media h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#media-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.media-item {
+    flex: 1;
+    min-width: 250px;
+    height: 290px;
+    text-align: center;
+    background: var(--highlight-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.media-item audio,
+.media-item video {
+    width: 100%;
+    max-width: 300px;
+}
+
+.media-item img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
