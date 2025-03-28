@@ -1,0 +1,50 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.menu {
+    background-color: #0d5083;
+    padding: 10px;
+    width: 250px;
+    height: 100vh;
+}
+
+#principal-menu {
+    background-color: #0d5083;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+#principal-menu li {
+    margin-bottom: 5px;
+}
+
+#principal-menu li a {
+    display: block;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+.submenu li a {
+    padding: 8px;
+    background-color: #ecf0f1;
+    display: block;
+    text-decoration: none;
+    border-radius: 3px;
+}

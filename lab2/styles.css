@@ -1,0 +1,42 @@
+body {
+    margin: 250px 0;
+}
+
+/* TABLE FORMATTING */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+tbody {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+/* TABLE TRANSITION */
+thead, tbody {
+    display: block;
+    transition: max-height 0.5s ease;
+}
+
+table:hover tbody {
+    max-height: 0;
+}
