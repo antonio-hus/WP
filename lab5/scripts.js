@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const menuLink = document.createElement('a');
         menuLink.textContent = `Menu ${i}`;
         menuLink.href = "#";
+        menuLink.classList.add("mainmenu");
 
         // Create the submenu
         const submenu = document.createElement('ul');
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             subLink.textContent = `Submenu ${i}.${j}`;
             subLink.href = "#";
             subLi.appendChild(subLink);
+            subLi.classList.add('sublink')
             submenu.appendChild(subLi);
         }
 
@@ -36,6 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Toggle submenu visibility on click
         menuLink.addEventListener('click', function (event) {
+            for(let menu in document.getElementsByClassName('submenu')) {
+                let element = document.getElementsByClassName('submenu')[menu];
+                if (element.style !== undefined) {
+                    element.style.display = 'none';
+                }
+            }
+
             submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
         });
     }
