@@ -28,7 +28,7 @@
       <input id="genre" type="text" formControlName="genre">
     </div>
 
-    <button class="button" [disabled]="isSubmitting">
+    <button type="submit" class="button" [disabled]="isSubmitting">
       <span *ngIf="isSubmitting" class="spinner"></span>
       Add Book
     </button>
