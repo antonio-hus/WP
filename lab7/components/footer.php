@@ -1,0 +1,6 @@
+<hr/>
+<footer>
+    <p>Personal Library | Antonio Hus | 2025</p>
+</footer>
+</body>
+</html>
