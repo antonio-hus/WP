@@ -1,0 +1,26 @@
+<div class="library-wrapper">
+  <h1 class="page-title">Delete Book</h1>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="info-box error">
+    {{ errorMessage }}
+    <div class="form-section">
+      <button class="button" routerLink="/">Return to List</button>
+    </div>
+  </div>
+
+  <!-- Confirm -->
+  <div *ngIf="!isLoading && !errorMessage && book" class="form-section">
+    <p>Are you sure you want to delete "<strong>{{ book.title }}</strong>"?</p>
+    <button class="button" (click)="confirmDelete()" [disabled]="isDeleting">
+      <span *ngIf="isDeleting" class="spinner"></span>
+      Delete
+    </button>
+    <button class="button secondary" (click)="cancel()">Cancel</button>
+  </div>
+</div>

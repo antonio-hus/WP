@@ -1,0 +1,32 @@
+/* Styling for the header */
+header {
+  background-color: #005089;
+  padding: 20px;
+  color: white;
+  position: sticky;
+}
+
+/* Styling for the nav menu */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline;
+}
+
+/* Styling for links */
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+}
+
+nav a:hover {
+  background-color: #0063ae;
+  border-radius: 5px;
+}

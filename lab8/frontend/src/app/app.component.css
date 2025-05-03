@@ -1,0 +1,12 @@
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f6f8;
+}
+
+footer {
+  background-color: #003f6b;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+}

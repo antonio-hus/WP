@@ -1,0 +1,45 @@
+<div class="library-wrapper">
+  <h1 class="page-title">
+    Lend Book<span *ngIf="book">: {{ book.title }}</span>
+  </h1>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="info-box error">
+    {{ errorMessage }}
+    <div class="form-section">
+      <button class="button" routerLink="/">Return to List</button>
+    </div>
+  </div>
+
+  <!-- Already Lent -->
+  <div *ngIf="alreadyLent && book" class="info-box warning">
+    This book is already lent to <strong>{{ book.lent_to }}</strong>
+    since {{ book.lent_date }}.
+  </div>
+
+  <!-- Form -->
+  <form *ngIf="!isLoading && !errorMessage && book"
+        [formGroup]="lendForm"
+        (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <label for="lentTo">Borrower Name</label>
+      <input id="lentTo" type="text" formControlName="lent_to">
+      <div *ngIf="lendForm.get('lent_to')?.touched && lendForm.get('lent_to')?.invalid" class="info-box error">
+        <div *ngIf="lendForm.get('lent_to')?.errors?.['required']">Required</div>
+        <div *ngIf="lendForm.get('lent_to')?.errors?.['minlength']">Min 3 chars</div>
+        <div *ngIf="lendForm.get('lent_to')?.errors?.['maxlength']">Max 100 chars</div>
+      </div>
+    </div>
+
+    <button class="button" [disabled]="isSubmitting || alreadyLent">
+      <span *ngIf="isSubmitting" class="spinner"></span>
+      Lend Book
+    </button>
+    <button class="button secondary" routerLink="/">Cancel</button>
+  </form>
+</div>

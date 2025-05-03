@@ -1,0 +1,73 @@
+<div class="library-wrapper">
+  <h1 class="page-title">Browse Books</h1>
+
+  <!-- Filter Form -->
+  <div class="filter-section">
+    <input
+      type="text"
+      class="genre-input"
+      placeholder="Enter genre..."
+      [(ngModel)]="filterGenre"
+      (keyup.enter)="applyFilter()">
+
+    <div class="filter-buttons">
+      <button class="button primary" type="button" (click)="applyFilter()">Filter</button>
+      <button class="button secondary" type="button" (click)="clearFilter()">Clear</button>
+    </div>
+  </div>
+
+  <!-- Current Filter Display -->
+  <div *ngIf="currentGenre" class="info-box">
+    Filtered by genre: {{ currentGenre }}
+  </div>
+  <div *ngIf="!currentGenre" class="info-box muted">
+    Showing all books
+  </div>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="info-box error">
+    {{ error }}
+  </div>
+
+  <!-- Books Table -->
+  <div class="books-table-wrapper" *ngIf="!loading && !error">
+    <table class="books-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Genre</th>
+        <th>Lent To</th>
+        <th>Lent Date</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.pages }}</td>
+        <td>{{ book.genre }}</td>
+        <td>{{ book.lent_to || '-' }}</td>
+        <td>{{ book.lent_date || '-' }}</td>
+        <td>
+          <a [routerLink]="['/edit-book', book.id]" class="action-button edit">Edit</a>
+          <a [routerLink]="['/delete-book', book.id]" class="action-button delete">Delete</a>
+          <a [routerLink]="['/lend-book', book.id]" class="action-button lend">Lend</a>
+        </td>
+      </tr>
+      <tr *ngIf="books.length === 0">
+        <td colspan="8" class="no-results">No books found</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

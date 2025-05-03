@@ -1,0 +1,94 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.library-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+}
+
+.page-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+/* Simple form spacing */
+.form-section {
+  margin-bottom: 16px;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background: #005089;
+  margin-right: 8px;
+}
+
+.button.secondary {
+  background: gray;
+}
+
+.info-box {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f0f0f0;
+}
+
+.info-box.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.info-box.warning {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ccc;
+  border-top-color: #005089;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+

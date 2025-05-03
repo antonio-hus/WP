@@ -1,0 +1,91 @@
+.library-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+}
+
+.page-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.genre-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  background: #005089;
+}
+
+.button.secondary {
+  background: gray;
+}
+
+.info-box {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f0f0f0;
+}
+
+.info-box.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.books-table th,
+.books-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.books-table th {
+  background: #005089;
+  color: white;
+}
+
+.action-button {
+  padding: 4px 8px;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  margin-right: 4px;
+  display: inline-block;
+}
+
+.action-button.edit { background: #005089; }
+.action-button.delete { background: #c0392b; }
+.action-button.lend { background: #2e7d32; }
+
+.no-results {
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+}

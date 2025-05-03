@@ -1,0 +1,48 @@
+<div class="library-wrapper">
+  <h1 class="page-title">Edit Book</h1>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMessage" class="info-box error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Not Found -->
+  <div *ngIf="notFound" class="info-box warning">
+    Book not found.
+    <button class="button" routerLink="/">Return to List</button>
+  </div>
+
+  <!-- Form -->
+  <form *ngIf="!isLoading && !notFound" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+
+    <div class="form-section">
+      <label for="author">Author</label>
+      <input id="author" type="text" formControlName="author">
+    </div>
+
+    <div class="form-section">
+      <label for="pages">Pages</label>
+      <input id="pages" type="number" formControlName="pages">
+    </div>
+
+    <div class="form-section">
+      <label for="genre">Genre</label>
+      <input id="genre" type="text" formControlName="genre">
+    </div>
+
+    <button class="button" [disabled]="isSubmitting">
+      <span *ngIf="isSubmitting" class="spinner"></span>
+      Save
+    </button>
+    <button class="button secondary" routerLink="/">Cancel</button>
+  </form>
+</div>
