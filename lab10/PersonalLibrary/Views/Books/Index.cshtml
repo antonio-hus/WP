@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BookViewModel>
+
+@{
+    ViewData["Title"] = "Browse Books";
+    var lastGenre = (ViewData["LastGenreFilter"] as string) ?? "";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form id="filter-form" class="form-group mb-3" method="get" asp-action="Index">
+    <label for="genre-input">Genre:</label>
+    <input
+        type="text"
+        id="genre-input"
+        name="genre"
+        placeholder="Enter genre..."
+        class="form-control d-inline-block w-auto"
+        value="@lastGenre" />
+    <button type="submit" class="btn btn-secondary ml-2">Filter</button>
+</form>
+
+<p id="current-filter" class="mb-3">
+    @(string.IsNullOrWhiteSpace(lastGenre)
+        ? "Showing all books"
+        : $"Filtered by genre: {lastGenre}")
+</p>
+
+<table id="books-table" class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Genre</th>
+        <th>Lent To</th>
+        <th>Lent Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Id</td>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>@book.Pages</td>
+            <td>@book.Genre</td>
+            <td>@book.LentTo</td>
+            <td>@(book.LentDate?.ToShortDateString() ?? "-")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-primary">Edit</a>
+                <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-sm btn-danger">Delete</a>
+                <a asp-action="Lend" asp-route-id="@book.Id" class="btn btn-sm btn-info">Lend</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success">Add New Book</a>

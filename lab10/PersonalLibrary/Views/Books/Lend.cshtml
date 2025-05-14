@@ -1,0 +1,43 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "Lend Book";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 500px;">
+    <div class="container mt-5 p-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2>@ViewData["Title"]</h2>
+
+                        @if (!string.IsNullOrEmpty(Model.LentTo))
+                        {
+                            <div class="alert alert-warning">
+                                This book is already lent to <strong>@Model.LentTo</strong> on
+                                <strong>@Model.LentDate?.ToShortDateString()</strong>.
+                            </div>
+                        }
+
+                        <form asp-action="Lend" method="post" class="needs-validation gap-2" novalidate>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="form-group">
+                                <label asp-for="LentTo">Borrower Name</label>
+                                <input asp-for="LentTo" class="form-control" required minlength="3" maxlength="255" />
+                                <span asp-validation-for="LentTo" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-info" @(Model.LentTo != null ? "disabled" : "")>
+                                Lend
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
